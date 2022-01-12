@@ -48,21 +48,21 @@ class FileManagerTest extends TestCase
         $this->assertCount(4, array_keys($res));
     }
 
-//    public function testFileManagerView3()
-//    {
-//        $path = __DIR__."/../FileTest";
-//        $fm = new FileManager($path);
-//        $content = $fm->view("dir2/file2.txt");
-//        $this->assertEquals("file2.txt - content", $content);
-//    }
+    public function testFileManagerView3()
+    {
+        $path = __DIR__."/../FileTest";
+        $fm = new FileManager($path);
+        $content = $fm->view("dir2/file2.txt");
+        $this->assertEquals("file2.txt - content\n", $content);
+    }
 
-//    public function testFileManagerView4()
-//    {
-//        $path = __DIR__."/../FileTest";
-//        $fm = new FileManager($path);
-//        $res = $fm->view("dir2/dir3");
-//
-//
-//        $this->assertCount(5, array_keys($res));
-//    }
+    public function testFileManagerView4()
+    {
+        $path = __DIR__."/../FileTest";
+        $fm = new FileManager($path);
+        $res = $fm->view("dir2/dir3");
+
+
+        $this->assertCount(5, array_keys($res));
+    }
 }
