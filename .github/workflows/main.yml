@@ -17,8 +17,12 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php-versions }}
-          tools: composer:v2
+          tools: composer:v2, phpunit:9.5
 
       - name: Composer Install
         run: |
           composer install -n --prefer-dist
+
+      - name: Run tests
+        run: |
+           phpunit
