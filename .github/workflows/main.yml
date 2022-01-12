@@ -26,6 +26,7 @@ jobs:
       - name: Setup .env
         run: |
           composer run-script post-root-package-install
+          composer run-script post-create-project-cmd
 
       - name: Run tests
         run: |
