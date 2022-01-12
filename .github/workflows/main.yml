@@ -23,6 +23,10 @@ jobs:
         run: |
           composer install -n --prefer-dist
 
+      - name: Setup .env
+        run: |
+          composer run-script post-root-package-install
+
       - name: Run tests
         run: |
-           phpunit
+          phpunit
