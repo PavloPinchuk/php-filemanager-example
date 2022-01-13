@@ -22,7 +22,7 @@ class FileManager
         $this->path = $path;//rtrim($path, "/");
         $this->init();
     }
-    
+
     protected function init() {
         $files = array_diff(scandir($this->path), ['.', '..']);
 
@@ -74,7 +74,7 @@ class FileManager
         return file_get_contents($this->path."/".$name);
     }
 
-    public function delete() {
-
+    public function delete($name) {
+        unlink($this->path."/".$name);
     }
 }
