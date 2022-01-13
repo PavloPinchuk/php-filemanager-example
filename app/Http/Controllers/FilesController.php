@@ -27,7 +27,7 @@ class FilesController extends Controller
             $resp['data'][] = $file;
         }
 
-        return $resp;
+        return response()->json($resp, 200);
     }
 
     /**

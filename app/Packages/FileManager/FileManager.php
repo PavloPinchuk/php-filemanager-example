@@ -22,9 +22,12 @@ class FileManager
         $this->path = $path;//rtrim($path, "/");
         $this->init();
     }
-
+    
     protected function init() {
         $files = array_diff(scandir($this->path), ['.', '..']);
+
+        sort($files, SORT_STRING);
+
         foreach ($files as $file) {
             $file = trim($file, "/");
             $this->files[$file] = new File($this->path."/".$file);

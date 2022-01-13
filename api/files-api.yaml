@@ -1,0 +1,68 @@
+openapi: 3.0.3
+info:
+  title: My Best Files API title
+  description: My Best Files API title
+  version: 1.0.0
+servers:
+  - url: 'http'
+paths:
+  /api/files/:
+    get:
+      operationId: listFiles
+      summary: List Files
+      responses:
+        '200':
+          description: |-
+            200 response
+          content:
+            application/json:
+              examples:
+                foo:
+                  value:
+                    {
+                      "data": [
+                        {
+                          "path": "\/Users\/alex\/tmp2\/file-manager\/storage\/app\/\/.gitignore",
+                          "name": null,
+                          "size": null,
+                          "isDir": false
+                        },
+                        {
+                          "path": "\/Users\/alex\/tmp2\/file-manager\/storage\/app\/\/file1.txt",
+                          "name": null,
+                          "size": null,
+                          "isDir": false
+                        },
+                        {
+                          "path": "\/Users\/alex\/tmp2\/file-manager\/storage\/app\/\/file2.txt",
+                          "name": null,
+                          "size": null,
+                          "isDir": false
+                        },
+                        {
+                          "path": "\/Users\/alex\/tmp2\/file-manager\/storage\/app\/\/file3.txt",
+                          "name": null,
+                          "size": null,
+                          "isDir": false
+                        },
+                        {
+                          "path": "\/Users\/alex\/tmp2\/file-manager\/storage\/app\/\/file4.txt",
+                          "name": null,
+                          "size": null,
+                          "isDir": false
+                        },
+                        {
+                          "path": "\/Users\/alex\/tmp2\/file-manager\/storage\/app\/\/file5.txt",
+                          "name": null,
+                          "size": null,
+                          "isDir": false
+                        },
+                        {
+                          "path": "\/Users\/alex\/tmp2\/file-manager\/storage\/app\/\/public",
+                          "name": null,
+                          "size": null,
+                          "isDir": true
+                        }
+                      ]
+                    }
+
