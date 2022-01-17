@@ -22,7 +22,7 @@ class FileManager
         $this->path = $path;//rtrim($path, "/");
         $this->init();
     }
-    
+
     protected function init() {
         $files = array_diff(scandir($this->path), ['.', '..']);
 
@@ -42,8 +42,27 @@ class FileManager
 
     }
 
-    public function update() {
+    /**
+     * @param int $oldName 
+     * @param int $newName 
+     */
+    public function update($oldName, $newName) {
+        $dirs = explode("/", $newName);
+        unset($dirs[count($dirs) - 1]);
+        $dirsChecked = "";
 
+        foreach ($dirs as $dir) {
+            $dirPath = $this->path.$dirsChecked."/".$dir;
+            
+            if (!file_exists($dirPath)) {
+                mkdir($dirPath);
+            }
+
+            $dirsChecked = $dirsChecked."/$dir";
+        }
+
+        echo 'console.log('. json_encode( $dirsChecked) .')';
+        rename($this->path."/".$oldName, $this->path."/".$newName);
     }
 
     /**
@@ -74,7 +93,7 @@ class FileManager
         return file_get_contents($this->path."/".$name);
     }
 
-    public function delete() {
-
+    public function delete($name) {
+        unlink($this->path."/".$name);
     }
 }
