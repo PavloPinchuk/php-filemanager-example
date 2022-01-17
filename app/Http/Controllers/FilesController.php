@@ -64,7 +64,11 @@ class FilesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $newName = $request->input('name');
+        $storagePath  = Storage::disk('local')->getDriver()->getAdapter()->getPathPrefix();
+
+        $fileManager = new FileManager($storagePath);
+        return $fileManager->update($id, $newName);
     }
 
     /**

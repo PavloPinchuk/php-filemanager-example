@@ -42,8 +42,27 @@ class FileManager
 
     }
 
-    public function update() {
+    /**
+     * @param int $oldName 
+     * @param int $newName 
+     */
+    public function update($oldName, $newName) {
+        $dirs = explode("/", $newName);
+        unset($dirs[count($dirs) - 1]);
+        $dirsChecked = "";
 
+        foreach ($dirs as $dir) {
+            $dirPath = $this->path.$dirsChecked."/".$dir;
+            
+            if (!file_exists($dirPath)) {
+                mkdir($dirPath);
+            }
+
+            $dirsChecked = $dirsChecked."/$dir";
+        }
+
+        echo 'console.log('. json_encode( $dirsChecked) .')';
+        rename($this->path."/".$oldName, $this->path."/".$newName);
     }
 
     /**
